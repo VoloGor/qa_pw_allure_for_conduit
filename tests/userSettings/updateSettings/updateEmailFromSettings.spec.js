@@ -22,7 +22,8 @@ test('Update email from settings test', async ({ page, user }) => {
   await userSettingsPage.clickUpdateSettingsButton();
   await userSettingsPage.assertEmailFieldValue(updatedUser.email);
   await page.waitForLoadState('domcontentloaded');
-  await userSettingsPage.clickProfileLink();
+
+  await userSettingsPage.clickProfileLink(user.username);
   await profilePage.clickEditProfileSettingsLink();
   await userSettingsPage.assertEmailFieldValue(updatedUser.email);
 });

@@ -15,7 +15,6 @@ export class UserSettingsPage {
     this.logoutButton = page.getByRole('button', {
       name: 'Or click here to logout.',
     });
-    this.profileLink = page.getByRole('link', { name: 'your profile image' });
   }
 
   async step(title, stepToRun) {
@@ -27,6 +26,10 @@ export class UserSettingsPage {
       await this.page.goto('/settings', { waitUntil: 'domcontentloaded' });
     });
   }
+  
+  getProfileLink(username) {
+    return this.page.getByRole('link', { name: username });
+  } 
 
   async fillProfileImageField(profileImage) {
     await this.step(`Fill the 'Profile Image' field`, async () => {
@@ -70,9 +73,9 @@ export class UserSettingsPage {
     });
   }
 
-  async clickProfileLink() {
+  async clickProfileLink(username) {
     await this.step(`Click the 'Profile' link`, async () => {
-      await this.profileLink.click();
+      await this.getProfileLink(username).click();
     });
   }
 
