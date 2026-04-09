@@ -25,7 +25,7 @@ export class ViewArticlePage {
 
   async open(url) {
     await this.step(`Open 'View Article' page`, async () => {
-      await this.page.goto(url);
+      await this.page.goto(url, { waitUntil: 'domcontentloaded' });
     });
   }
 

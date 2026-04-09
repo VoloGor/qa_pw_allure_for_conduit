@@ -16,7 +16,7 @@ export class SignInPage {
 
   async open() {
     await this.step(`Open 'Sign In' page`, async () => {
-      await this.page.goto('/user/login');
+      await this.page.goto('/user/login', { waitUntil: 'domcontentloaded' });
     });
   }
 
