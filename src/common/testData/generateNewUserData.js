@@ -9,6 +9,7 @@ export function generateNewUserData(logger = null) {
     email: `${firstName}_${faker.internet.email()}`.toLowerCase(),
     password: faker.internet.password(),
     bio: faker.lorem.sentence(5),
+    image: faker.image.avatar(),
   };
 
   if (logger) {

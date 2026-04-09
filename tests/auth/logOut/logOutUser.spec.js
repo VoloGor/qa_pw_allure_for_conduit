@@ -19,5 +19,6 @@ test('Log out user test', async ({ page, user }) => {
 
   await page.reload({ waitUntil: 'domcontentloaded' });
 
+  await homePage.assertUrl();
   await homePage.assertProfileLinkIsNotVisible(user.username);
 });

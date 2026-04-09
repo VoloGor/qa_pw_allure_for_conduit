@@ -15,6 +15,6 @@ export const test = base.extend({
 
       await use();
     },
-    { scope: 'worker' },
+    { scope: 'worker' , auto: true },
   ],
 });

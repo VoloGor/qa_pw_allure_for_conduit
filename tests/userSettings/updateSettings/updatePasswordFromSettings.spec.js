@@ -1,13 +1,11 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
 import { UserSettingsPage } from '../../../src/ui/pages/UserSettings';
-import { ProfilePage } from '../../../src/ui/pages/ProfilePage';
 import { generateNewUserData } from '../../../src/common/testData/generateNewUserData';
 import { SignInPage } from '../../../src/ui/pages/auth/SignInPage';
 import { HomePage } from '../../../src/ui/pages/HomePage';
 
 let userSettingsPage;
-let profilePage;
 let updatedUser;
 let signInPage;
 let homePage;
@@ -18,7 +16,6 @@ test.beforeEach(async ({ page, user }) => {
 
 test('Update password from settings test', async ({ page, user }) => {
   userSettingsPage = new UserSettingsPage(page, user.id);
-  profilePage = new ProfilePage(page, user.id);
   updatedUser = generateNewUserData();
   signInPage = new SignInPage(page);
   homePage = new HomePage(page, user.id);

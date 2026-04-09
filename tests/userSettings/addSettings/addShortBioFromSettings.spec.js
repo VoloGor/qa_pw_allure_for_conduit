@@ -18,9 +18,9 @@ test('Add short bio from settings test', async ({ page, user }) => {
   updatedUser = generateNewUserData();
 
   await userSettingsPage.open();
-  await userSettingsPage.fillBioField(user.bio);
+  await userSettingsPage.fillBioField(updatedUser.bio);
   await userSettingsPage.clickUpdateSettingsButton();
   await profilePage.open(user.username);
   await profilePage.assertProfileUsername(user.username);
-  await profilePage.assertProfileBio(user.bio);
+  await profilePage.assertProfileBio(updatedUser.bio);
 });

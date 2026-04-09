@@ -45,4 +45,9 @@ export class HomePage {
       await expect(this.yourFeedTab).toBeVisible();
     });
   }
+  async assertUrl() {
+    await this.step(`Assert the URL is correct`, async () => {
+      await expect(this.page).toHaveURL('/');
+    });
+  }
 }

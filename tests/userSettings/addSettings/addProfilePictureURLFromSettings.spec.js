@@ -18,8 +18,8 @@ test('Add profile picture URL from settings test', async ({ page, user }) => {
   updatedUser = generateNewUserData();
 
   await userSettingsPage.open();
-  await userSettingsPage.fillProfileImageField('https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg');
+  await userSettingsPage.fillProfileImageField(updatedUser.image);
   await userSettingsPage.clickUpdateSettingsButton();
   await profilePage.open(user.username);
-  await profilePage.assertProfileImageSrc('https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg');
+  await profilePage.assertProfileImageSrc(updatedUser.image);
 });
